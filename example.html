@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta lang="en-US">
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@1.0.0/dist/tf.min.js"></script>
+    <script type="module">
+        import * as tf from '@tensorflow/tfjs';
+        const model = await tf.loadLayersModel('https://foo.bar/tfjs_artifacts/model.json');
+        const example = tf.fromPixels(webcamElement);  // for example
+        const prediction = model.predict(example);
+    </script>
+</head>
+<body>
+    <input type="file" name="testset" id="testset">
+    <script>
+        document.getElementById("testset").addEventListener("change", (e)=>{
+            console.log(e);
+        });
+    </script>
+</body>
+</html>
